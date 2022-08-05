@@ -4,6 +4,7 @@ const resolvers = {
   Query: {
     getAllUsers: async () => {
       const user = await getAllUsers();
+      console.log(user);
       return user;
     },
     getUser: async (_, args) => {
@@ -14,10 +15,19 @@ const resolvers = {
   },
   Mutation: {
     createUser: async (_, args) => {
-      const { userName, lastname, motherLastName, birth, email, phone } = args;
+      const {
+        userName,
+        middleName,
+        lastname,
+        motherLastName,
+        birth,
+        email,
+        phone,
+      } = args;
 
       const newUser = {
         userName,
+        middleName,
         lastname,
         motherLastName,
         birth,
@@ -26,7 +36,7 @@ const resolvers = {
       };
 
       const userCreated = await createUser(newUser);
-
+      console.log(userCreated);
       return userCreated;
     },
   },

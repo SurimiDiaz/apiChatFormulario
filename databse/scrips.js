@@ -1,19 +1,21 @@
 import pool from "../databse/mysql.js";
 
-export const getAllUsers = () => {
-  const users = pool.query("SELECT * FROM users_test_lauraSurimi");
+export const getAllUsers = async () => {
+  const users = await pool.query("SELECT * FROM users_test_lauraSurimi");
+
   return users;
 };
 
-export const createUser = (user) => {
-  const newUser = pool.query("INSERT INTO users_test_lauraSurimi set ?", [
+export const createUser = async (user) => {
+  const newUser = await pool.query("INSERT INTO users_test_lauraSurimi set ?", [
     user,
   ]);
-  return newUser;
+
+  return "ok";
 };
 
-export const getOneUser = (id) => {
-  const users = pool.query(
+export const getOneUser = async (id) => {
+  const users = await pool.query(
     "SELECT * FROM `users_test_lauraSurimi` WHERE `id` = ?",
     [id]
   );

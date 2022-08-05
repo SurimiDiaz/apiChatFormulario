@@ -2,10 +2,11 @@ import mysql from "mysql";
 import "dotenv/config";
 import { promisify } from "util";
 
-const { HOST, USER, DB } = process.env;
+const { HOST, USER, DB, PW } = process.env;
 const pool = mysql.createPool({
   host: HOST,
   user: USER,
+
   database: DB,
 });
 

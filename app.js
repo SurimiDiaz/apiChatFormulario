@@ -2,6 +2,7 @@ import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import { typeDefs } from "./typeDefs.js";
 import resolvers from "./resolver.js";
+import "dotenv/config";
 import pool from "./databse/mysql.js";
 
 export const app = express();

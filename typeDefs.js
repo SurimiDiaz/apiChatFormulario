@@ -4,11 +4,16 @@ export const typeDefs = gql`
   type User {
     id: ID
     userName: String
+    middleName: String
     lastname: String
     motherLastName: String
     birth: String
     email: String
-    phone: Int
+    phone: String
+  }
+
+  type Message {
+    message: String
   }
 
   type Query {
@@ -18,21 +23,23 @@ export const typeDefs = gql`
 
   type UserInput {
     userName: String
+    middleName: String
     lastname: String
     motherLastName: String
     birth: String
     email: String
-    phone: Int
+    phone: String
   }
 
   type Mutation {
     createUser(
       userName: String
+      middleName: String
       lastname: String
       motherLastName: String
       birth: String
       email: String
-      phone: Int
-    ): User
+      phone: String
+    ): Message
   }
 `;
